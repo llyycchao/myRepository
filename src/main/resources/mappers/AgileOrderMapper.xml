@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.agile.mapper.AgileOrderMapper" >
+
+    <insert id="add" parameterType="com.demo.agile.model.AgileOrder" >
+        INSERT INTO
+          agile_order
+          (order_id,client_id,order_date,quantity,commont)
+        VALUES
+          (#{orderId}, #{clientId}, #{orderDate}, #{quantity}, #{commont})
+    </insert>
+
+    <select id="getAllAgileOrder" resultType="com.demo.agile.model.AgileOrder">
+        select
+          order_id as orderId
+          ,order_date as orderDate
+          ,quantity
+          ,commont
+        from
+            agile_order
+        order by
+            order_id
+    </select>
+
+</mapper>
